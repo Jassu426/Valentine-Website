@@ -31,6 +31,13 @@
             color: var(--primary-color);
         }
 
+        .message {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin: 20px;
+            max-width: 600px;
+        }
+
         .response-buttons button {
             background-color: var(--primary-color);
             color: white;
@@ -67,16 +74,26 @@
             border-radius: 10px;
             box-shadow: var(--box-shadow);
         }
+
+        .floating-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+            background-size: cover;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="/mnt/data/Camila_Cabello_Nicholas_Galitzine_-_Perfect_Official_Audio.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <section id="page1" class="page active">
         <h1>💖 Will You Be My Valentine? 💖</h1>
+        <p class="message">To the boy I met in college, whom I thought I would never even be friends with... but now I can't believe I have fallen in love with.. If someone asks me the happiest moment with you I would say every moment with you feels like a fairytale and I am the happiest with you. Will you be my Valentine? 💖</p>
         <div class="response-buttons">
             <button onclick="userResponse('Yes!')">Yes!</button>
             <button onclick="userResponse('Of course!')">Of course!</button>
@@ -89,10 +106,11 @@
         function userResponse(answer) {
             const messageBox = document.getElementById("responseMessage");
             const gifContainer = document.getElementById("gifContainer");
-            messageBox.textContent = `Awww! You said "${answer}"❤️! You made my day!`;
+            messageBox.textContent = `Awww! You said "${answer}" ❤️! You made my day!`;
             messageBox.classList.remove("hidden");
             gifContainer.classList.remove("hidden");
-            gifContainer.innerHTML = ""; 
+            gifContainer.innerHTML = "";
+            createFloatingHearts();
 
             if (answer === "Yes!") {
                 gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ohc0WvWbphlr7Z9tm/giphy.gif' alt='Cute GIF'>`;
@@ -100,6 +118,17 @@
                 gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif' alt='Cute GIF'>`;
                 gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l3V0j3ytFyGHqiV7W/giphy.gif' alt='Love GIF'>`;
                 gifContainer.innerHTML += `<img src='https://media.giphy.com/media/J2AwBkA8kVXRy/giphy.gif' alt='Excited GIF'>`;
+            }
+        }
+
+        function createFloatingHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
             }
         }
     </script>
