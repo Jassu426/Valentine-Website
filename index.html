@@ -56,18 +56,16 @@
             color: var(--primary-color);
         }
 
-        .floating-heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
-            background-size: cover;
-            animation: floatUp 3s linear infinite;
+        .gif-container {
+            margin-top: 20px;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        .gif-container img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
         }
     </style>
 </head>
@@ -84,24 +82,24 @@
             <button onclick="userResponse('Of course!')">Of course!</button>
         </div>
         <div class="message-box hidden" id="responseMessage"></div>
+        <div class="gif-container hidden" id="gifContainer"></div>
     </section>
 
     <script>
         function userResponse(answer) {
             const messageBox = document.getElementById("responseMessage");
+            const gifContainer = document.getElementById("gifContainer");
             messageBox.textContent = `Awww! You said "${answer}"❤️! You made my day!`;
             messageBox.classList.remove("hidden");
-            createFloatingHearts();
-        }
+            gifContainer.classList.remove("hidden");
+            gifContainer.innerHTML = ""; 
 
-        function createFloatingHearts() {
-            for (let i = 0; i < 20; i++) {
-                let heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 3000);
+            if (answer === "Yes!") {
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ohc0WvWbphlr7Z9tm/giphy.gif' alt='Cute GIF'>`;
+            } else if (answer === "Of course!") {
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif' alt='Cute GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l3V0j3ytFyGHqiV7W/giphy.gif' alt='Love GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/J2AwBkA8kVXRy/giphy.gif' alt='Excited GIF'>`;
             }
         }
     </script>
