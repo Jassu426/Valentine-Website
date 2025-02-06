@@ -103,23 +103,29 @@
     </section>
 
     <script>
-        function userResponse(answer) {
-            const messageBox = document.getElementById("responseMessage");
-            const gifContainer = document.getElementById("gifContainer");
-            messageBox.textContent = `Awww! You said "${answer}" ❤️! You made my day!`;
-            messageBox.classList.remove("hidden");
-            gifContainer.classList.remove("hidden");
-            gifContainer.innerHTML = "";
-            createFloatingHearts();
+    function userResponse(answer) {
+        const messageBox = document.getElementById("responseMessage");
+        const gifContainer = document.getElementById("gifContainer");
+        const yesAudio = document.getElementById("yesAudio");
+        const ofCourseAudio = document.getElementById("ofCourseAudio");
 
-            if (answer === "Yes!") {
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ohc0WvWbphlr7Z9tm/giphy.gif' alt='Cute GIF'>`;
-            } else if (answer === "Of course!") {
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif' alt='Cute GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l3V0j3ytFyGHqiV7W/giphy.gif' alt='Love GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/J2AwBkA8kVXRy/giphy.gif' alt='Excited GIF'>`;
-            }
+        messageBox.textContent = `Awww! You said "${answer}" ❤️! You made my day!`;
+        messageBox.classList.remove("hidden");
+        gifContainer.classList.remove("hidden");
+        gifContainer.innerHTML = "";
+        
+        if (answer === "Yes!") {
+            gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ohc0WvWbphlr7Z9tm/giphy.gif' alt='Cute GIF'>`;
+            yesAudio.play();
+        } else if (answer === "Of course!") {
+            gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif' alt='Cute GIF'>`;
+            gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l3V0j3ytFyGHqiV7W/giphy.gif' alt='Love GIF'>`;
+            gifContainer.innerHTML += `<img src='https://media.giphy.com/media/J2AwBkA8kVXRy/giphy.gif' alt='Excited GIF'>`;
+            ofCourseAudio.play();
         }
+    }
+</script>
+
 
         function createFloatingHearts() {
             for (let i = 0; i < 20; i++) {
@@ -134,3 +140,9 @@
     </script>
 </body>
 </html>
+<audio id="yesAudio">
+    <source src="https://raw.githubusercontent.com/yourusername/valentine-website/main/yes_song.mp3" type="audio/mpeg">
+</audio>
+<audio id="ofCourseAudio">
+    <source src="https://raw.githubusercontent.com/yourusername/valentine-website/main/of_course_song.mp3" type="audio/mpeg">
+</audio>
