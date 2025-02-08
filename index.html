@@ -65,6 +65,9 @@
 
         .gif-container {
             margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .gif-container img {
@@ -98,13 +101,13 @@
             gifContainer.innerHTML = "";
 
             if (answer === "Yes!") {
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/WRQBXSCnEFJIuxktnw/giphy.gif' alt='Cute Bear Hug GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l4FGn7u1N9Y7hS7Di/giphy.gif' alt='Love Animation GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.tenor.com/9HjLbUuHq4cAAAAC/cute-love.gif' alt='Cute Bear Hug GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.tenor.com/Oc6JXq9H1CgAAAAM/love-bear.gif' alt='Love Animation GIF'>`;
             } else if (answer === "Of course!") {
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/f6y4qvdxwEDx6/giphy.gif' alt='Excited Happy GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/xT1XGzXhVbdygsGRD6/giphy.gif' alt='Jumping with Love GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ov9k9AyzTi3mD7Ula/giphy.gif' alt='Cute Happy Love GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif' alt='Hearts Flying GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.tenor.com/XfjflR3N6P8AAAAC/love-hug.gif' alt='Excited Happy GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.tenor.com/BvZMZKHq_qYAAAAM/happy-cute.gif' alt='Jumping with Love GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.tenor.com/PF33-hTY7p8AAAAM/cute-kawaii.gif' alt='Cute Happy Love GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.tenor.com/VQ0UP-GKxjIAAAAM/hug-hearts.gif' alt='Hearts Flying GIF'>`;
             }
         }
     </script>
