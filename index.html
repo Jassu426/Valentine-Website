@@ -74,20 +74,6 @@
             border-radius: 10px;
             box-shadow: var(--box-shadow);
         }
-
-        .floating-heart {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
-            background-size: cover;
-            animation: floatUp 5s linear infinite;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-        }
     </style>
 </head>
 <body>
@@ -110,25 +96,15 @@
             messageBox.classList.remove("hidden");
             gifContainer.classList.remove("hidden");
             gifContainer.innerHTML = "";
-            createFloatingHearts();
 
             if (answer === "Yes!") {
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ohc0WvWbphlr7Z9tm/giphy.gif' alt='Cute GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/WRQBXSCnEFJIuxktnw/giphy.gif' alt='Cute Bear Hug GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l4FGn7u1N9Y7hS7Di/giphy.gif' alt='Love Animation GIF'>`;
             } else if (answer === "Of course!") {
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif' alt='Cute GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/l3V0j3ytFyGHqiV7W/giphy.gif' alt='Love GIF'>`;
-                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/J2AwBkA8kVXRy/giphy.gif' alt='Excited GIF'>`;
-            }
-        }
-
-        function createFloatingHearts() {
-            for (let i = 0; i < 20; i++) {
-                let heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 5000);
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/f6y4qvdxwEDx6/giphy.gif' alt='Excited Happy GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/xT1XGzXhVbdygsGRD6/giphy.gif' alt='Jumping with Love GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/3ov9k9AyzTi3mD7Ula/giphy.gif' alt='Cute Happy Love GIF'>`;
+                gifContainer.innerHTML += `<img src='https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif' alt='Hearts Flying GIF'>`;
             }
         }
     </script>
